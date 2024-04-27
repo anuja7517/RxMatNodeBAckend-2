@@ -1,0 +1,48 @@
+<h3>
+    {{couresData.description}}
+</h3>
+
+<form [formGroup]="courseform" >
+    <mat-form-field appearance="legacy" class="w-100">
+        <mat-label>Legacy form field</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="description">
+        <mat-error *ngIf="f['description'].hasError('required')"> Discription is Mandatory</mat-error>
+        
+      </mat-form-field>
+      <mat-form-field appearance="legacy" class="w-100">
+        <mat-label>Long Description</mat-label>
+        <input matInput placeholder="category ">
+        <mat-select formControlName="category">
+           <mat-option value="BEGINNER">
+            Beginner
+           </mat-option>
+           <mat-option  value="ADVANCED">
+            Advanced
+           </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Long Description </mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="releaseAt">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <mat-label>
+            Description
+        </mat-label>
+        <textarea matInput placeholder="placeholder" formControlName="longDescription"></textarea>
+      </mat-form-field>
+
+     <mat-card-actions class="d-flex justify-content-between">
+        <button mat-raised-button color="accent" class="onclose()">
+            Close
+        </button>
+        <button mat-raised-button color="primary" (click)="onsave() "[disabled]="courseform.invalid">
+           Save
+        </button>
+     </mat-card-actions>
+      
+
+</form>

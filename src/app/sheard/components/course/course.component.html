@@ -1,0 +1,42 @@
+<div class="course">
+    <div class="row">
+        <div class="col-12">
+            <ng-container *ngIf="(coureObj$ | async) as course">
+                <h2>
+                    {{course.description}}
+                </h2>
+                <img [src]="course.iconUrl" [alt]="course.description" [title]="course.description">
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<div class="col-12">
+    <ng-container *ngIf="(lession$ | async) as lessons">
+        <table class="table table bordered">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let lessons of lessons ">
+                    <td>
+                        {{lessons.seqNo}}
+                    </td>
+                    <td>
+                        {{lessons.description}}
+                    </td>
+                    <td>
+                        {{lessons.duration}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</ng-container>
+
+   
+</div>

@@ -1,0 +1,16 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            {{getcourse.description}}
+        </mat-card-title>
+    </mat-card-header>
+    <img mat-card-image [src]="getcourse.iconUrl" [alt]="getcourse.description" [title]="getcourse.description">
+    <mat-card-content>
+        {{getcourse.longDescription}}
+    </mat-card-content>
+    <mat-card-actions class="d-flex justify-content-between">
+        <button mat-raised-button color="primary" [routerLink]="['/course',getcourse.id]" >View Course</button>
+        <button mat-raised-button class="float-right" color="primary" (click)="onedit()">Edit Course</button>
+
+    </mat-card-actions>
+</mat-card>
